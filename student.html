@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+    }
+
+    nav {
+      background-color: #555;
+      padding: 10px;
+      text-align: center;
+      display: flex;
+      gap: 10px;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    a:hover {
+      background-color: #777;
+    }
+
+    .dashboard {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .feature-container {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 300px;
+      margin: 20px;
+      display: none;
+    }
+
+    .feature-container.active {
+      display: block;
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      color: #555;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #3498db;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .material-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .material-item {
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .assignment-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .assignment-item {
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .grade-display {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    footer {
+            background-color: rgb(21, 17, 17);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height:45px;
+        }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Student Dashboard</h1>
+  </header>
+
+  <nav>
+    <!-- <a href="teacher.html">Teacher Dashboard</a> -->
+    <a href="#" onclick="showSection('materials')">Materials</a>
+    <a href="#" onclick="showSection('view-assignments')">View Assignments</a>
+    <a href="#" onclick="showSection('submit-assignment')">Submit Assignment</a>
+    <a href="#" onclick="showSection('grades')">Grades</a>
+  </nav>
+
+  <section class="dashboard">
+
+    <section id="materials" class="feature-container active">
+      <h2>Materials</h2>
+      <ul class="material-list">
+        <li class="material-item">
+          <div>
+            <strong>Video 1:</strong> Introduction to Programming
+          </div>
+        </li>
+        <li class="material-item">
+          <div>
+            <strong>PDF 1:</strong> Programming Basics
+          </div>
+        </li>
+        <!-- Add more materials as needed -->
+      </ul>
+    </section>
+
+    <section id="view-assignments" class="feature-container">
+      <h2>View Assignments</h2>
+      <div class="assignment-grid">
+        <!-- Display 3-4 assignments in a grid with a "View" button -->
+        <div class="assignment-item">
+          <div>
+            <strong>Assignment 1:</strong> Programming Basics
+          </div>
+          <button onclick="viewAssignment('assignment1')">View</button>
+        </div>
+        <div class="assignment-item">
+          <div>
+            <strong>Assignment 2:</strong> Data Structures
+          </div>
+          <button onclick="viewAssignment('assignment2')">View</button>
+        </div>
+        <div class="assignment-item">
+          <div>
+            <strong>Assignment 3:</strong> Algorithms
+          </div>
+          <button onclick="viewAssignment('assignment3')">View</button>
+        </div>
+        
+      </div>
+    </section>
+    <script>
+      // Function to handle the "View" button click for assignments
+      function viewAssignment(assignmentId) {
+        alert(`Viewing Assignment: ${assignmentId}`);
+        // You can add further actions here, such as opening a modal or navigating to a specific page.
+      }
+    </script>
+    <section id="submit-assignment" class="feature-container">
+      <h2>Submit Assignment</h2>
+      <form id="submit-assignment-form">
+        <label for="assignment-file">Upload Assignment:</label>
+        <input type="file" id="assignment-file" name="assignment-file" accept=".pdf, .docx" required>
+
+        <button type="submit">Submit Assignment</button>
+      </form>
+    </section>
+
+    <section id="grades" class="feature-container">
+      <h2>Grades</h2>
+      <ul class="assignment-list">
+        <li class="assignment-item">
+          <div>
+            <strong>Assignment 1:</strong> Graded
+          </div>
+          <div class="grade-display">Grade: A</div>
+        </li>
+        <li class="assignment-item">
+          <div>
+            <strong>Assignment 2:</strong> Not Graded Yet
+          </div>
+        </li>
+        <!-- Add more assignments as needed -->
+      </ul>
+    </section>
+
+  </section>
+
+  <script>
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('.feature-container');
+      sections.forEach(section => {
+        if (section.id === sectionId) {
+          section.classList.add('active');
+        } else {
+          section.classList.remove('active');
+        }
+      });
+    }
+
+    document.getElementById('submit-assignment-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the default form submission
+      alert('Assignment submitted successfully!');
+    });
+    const materialsData = [
+      { type: 'video', name: 'Introduction to Programming' },
+      { type: 'pdf', name: 'Programming Basics' },
+    ];
+
+    // Function to display materials
+    function displayMaterials() {
+      const materialsList = document.querySelector('.material-list');
+      materialsList.innerHTML = ''; // Clear existing content
+
+      materialsData.forEach(material => {
+        const materialItem = document.createElement('li');
+        materialItem.classList.add('material-item');
+        materialItem.innerHTML = `<div><strong>${capitalizeFirstLetter(material.type)}:</strong> ${material.name}</div>`;
+        materialsList.appendChild(materialItem);
+      });
+    }
+
+    // Capitalize the first letter of a string
+    function capitalizeFirstLetter(str) {
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
+    // Initial display of materials
+    displayMaterials();
+  </script>
+<footer>
+  <p>@6423_Vishal</p>
+</footer>
+</body>
+</html>

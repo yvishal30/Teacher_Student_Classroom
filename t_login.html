@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TY RJ College Login</title>
+    <style>
+        body {
+            background-color: white;
+            color: rgb(11, 10, 10);
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 5px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Box shadow for the container */
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: navy;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container" id="teacherLogin">
+        <h2>Teacher Login</h2>
+        <form onsubmit="login('teacher'); return false;">
+            <input type="text" placeholder="Teacher Name" required id="teacherID">
+            <input type="password" placeholder="Password" required id="teacherPassword">
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <script>
+        function login(userType) {
+            if (userType === 'student') {
+                // Simulating successful student login
+                const rollNo = document.getElementById('rollNo').value;
+                const studentID = document.getElementById('studentID').value;
+                alert(`Welcome Student!\nRoll No.: ${rollNo}\nStudent ID: ${studentID}`);
+            } else if (userType === 'teacher') {
+                // Simulating successful teacher login
+                const teacherID = document.getElementById('teacherID').value;
+                alert(`Welcome Teacher!\nTeacher Name: ${teacherID}`);
+                window.location.href = 'teacher.html';
+            }
+        }
+    </script>
+</body>
+</html>
